@@ -48,7 +48,6 @@ public class bounce {
                 if(P1Miss >= 3 || P2Miss >=3){
                     isGameOver = true;
                     displayBoard(board);
-                    int winningPlayer = (currentPlayer == 1) ? 2 : 1;
                     JOptionPane.showMessageDialog(null, "Player " + winningPlayer + " wins!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 }
 
