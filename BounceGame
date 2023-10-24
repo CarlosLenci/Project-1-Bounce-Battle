@@ -15,7 +15,8 @@ public class bounce {
             int columns = 3;
             char[][][] board = new char[layers][rows][columns];
             boolean isGameOver = false;
-
+            int P1Miss = 0;
+            int P2Miss = 0;
             while (!isGameOver) {
                 displayBoard(board);
 
@@ -24,7 +25,16 @@ public class bounce {
 
                 if (new Random().nextDouble() <= 0.2) {
                     // 20% chance of missing the board
+                    if (currentPlayer == 1){
+                        P1Miss++;
+                        P2Miss = 0;
+                    }else{
+                        P1Miss = 0;
+                        P2Miss++;
+                    }
                 } else {
+                    P1Miss = 0;
+                    P2Miss = 0;
                     int layer = new Random().nextInt(layers);
                     int row;
                     int column;
@@ -34,6 +44,12 @@ public class bounce {
                     } while (board[layer][row][column] == 'X');
 
                     board[layer][row][column] = 'X';
+                }
+                if(P1Miss >= 3 || P2Miss >=3){
+                    isGameOver = true;
+                    displayBoard(board);
+                    int winningPlayer = (currentPlayer == 1) ? 2 : 1;
+                    JOptionPane.showMessageDialog(null, "Player " + winningPlayer + " wins!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 }
 
                 if (isGameWon(board, layers, rows, columns)) {
@@ -71,7 +87,6 @@ public class bounce {
         }
         JOptionPane.showMessageDialog(null, boardString.toString(), "Board", JOptionPane.PLAIN_MESSAGE);
     }
-
     private static boolean isGameWon(char[][][] board, int layers, int rows, int columns) {
         for (int i = 0; i < layers; i++) {
             for (int j = 0; j < rows; j++) {
