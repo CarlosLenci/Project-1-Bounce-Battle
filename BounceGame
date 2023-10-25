@@ -1,7 +1,8 @@
 import java.util.Random;
 import javax.swing.JOptionPane;
 
-public class bounce {
+public class BounceBattle {
+
 
     public static void main(String[] args) {
         int currentPlayer = 1;
@@ -35,19 +36,32 @@ public class bounce {
                 } else {
                     P1Miss = 0;
                     P2Miss = 0;
-                    int layer = new Random().nextInt(layers);
+                    int layer;
                     int row;
                     int column;
                     do {
+                        layer = 2;
                         row = new Random().nextInt(rows);
                         column = new Random().nextInt(columns);
-                    } while (board[layer][row][column] == 'X');
+                        if(board[layer][row][column] == 'X' || board[layer][row][column] == 'O'){
+                            layer = 1;
+                            if(board[layer][row][column] == 'X' || board[layer][row][column] == 'O'){
+                                layer = 0; 
+                            }
+                        }
+                    } while (board[layer][row][column] == 'X' || board[layer][row][column] == 'O');
 
-                    board[layer][row][column] = 'X';
+                    if(currentPlayer == 1){
+                        board[layer][row][column] = 'X';
+                    }else{
+                        board[layer][row][column] = 'O';
+                    }
+                    
                 }
                 if(P1Miss >= 3 || P2Miss >=3){
                     isGameOver = true;
                     displayBoard(board);
+                    int winningPlayer = (currentPlayer == 1) ? 2 : 1;
                     JOptionPane.showMessageDialog(null, "Player " + winningPlayer + " wins!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -76,7 +90,9 @@ public class bounce {
                 for (int k = 0; k < board[i][j].length; k++) {
                     if (board[i][j][k] == 'X') {
                         boardString.append('X');
-                    } else {
+                    }else if(board[i][j][k] == 'O'){
+                        boardString.append('O');
+                    }else {
                         boardString.append('-');
                     }
                     boardString.append(' ');
@@ -101,6 +117,9 @@ public class bounce {
                 }
             }
         }
+        return false;
+    }
+}
         return false;
     }
 }
