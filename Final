@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class bounce {
     public static void main(String[] args) {
        
+        //MENU SECTION
         JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!", "Bounce Game", JOptionPane.PLAIN_MESSAGE); // introduction
         String[] options = new String[] {"Mathelete","Three Misses in a Row","Three balls in a Row","Bad Luck"};  //Menu for selecting the versions
         int response = JOptionPane.showOptionDialog(null, "Select one of these four versions of the Bounce Game", "Bounce Game", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
@@ -31,6 +32,13 @@ public class bounce {
         }
     }
 
+    /*
+    
+    SEAN CODE
+    
+    
+    
+    */ 
     public static boolean mathRule(){ //method for math rule
         int currentPlayer = 1; 
         boolean playAgain = true;
@@ -151,18 +159,20 @@ public class bounce {
 /*
  * 
  * 
- * 
+ * Carlos Code
  * 
  * 
  * 
  */
-
+// 
     public static boolean ThreeInaRow() {
         int currentPlayer = 1;
         boolean playAgain = true;
 
         while (playAgain) {
             JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
+            
+            JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!\nMake 3 in a row to win and if you miss 3 in a row you lose!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
 
             int layers = 3;
             int rows = 3;
@@ -178,7 +188,7 @@ public class bounce {
                 String message = "Player " + currentPlayer + ", click OK to make a shot.";
                 JOptionPane.showMessageDialog(null, message, "Player " + currentPlayer, JOptionPane.INFORMATION_MESSAGE);
 
-                if (new Random().nextDouble() <= 0.2) {
+                if (new Random().nextDouble() <= 0.5) {
                     // 20% chance of missing the board
                     if (currentPlayer == 1){
                         P1Miss++;
@@ -293,10 +303,16 @@ public class bounce {
                 return false;
             
         }
-   
+   /*
+    * 
 
-        
-        
+
+    ANDY's CODE
+
+
+
+    */
+
         public static boolean ThreeInaRow2() {
             int currentPlayer = 1;
             boolean playAgain = true;
@@ -398,6 +414,11 @@ public class bounce {
         }
 
 
+        /*
+         * Daniels Code
+         * 
+         * 
+         */
         public static boolean DanielsVersion() {
                 int currentPlayer = 1;
                 boolean playAgain = true;
@@ -418,7 +439,7 @@ public class bounce {
                         String message = "Player " + currentPlayer + ", click OK to make a shot.";
                         JOptionPane.showMessageDialog(null, message, "Player " + currentPlayer, JOptionPane.INFORMATION_MESSAGE);
         
-                        if (new Random().nextDouble() <= 0.2) {
+                        if (new Random().nextDouble() <= 0.5) {
                             // 20% chance of missing the board
                             if (currentPlayer == 1){
                                 P1Miss++;
@@ -539,3 +560,4 @@ public class bounce {
             
         }
     }
+
