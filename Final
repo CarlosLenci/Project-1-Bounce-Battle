@@ -14,7 +14,7 @@ public class bounce {
     public static void main(String[] args) {
        
         JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!", "Bounce Game", JOptionPane.PLAIN_MESSAGE); // introduction
-        String[] options = new String[] {"Mathelete","Three Misses in a Row","Three balls in a Row","Daniels Version"};  //Menu for selecting the versions
+        String[] options = new String[] {"Mathelete","Three Misses in a Row","Three balls in a Row","Bad Luck"};  //Menu for selecting the versions
         int response = JOptionPane.showOptionDialog(null, "Select one of these four versions of the Bounce Game", "Bounce Game", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
         
         if (response == 0) { // first answer runs mathRule() method
