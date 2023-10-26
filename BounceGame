@@ -9,7 +9,7 @@ public class BounceBattle {
         boolean playAgain = true;
 
         while (playAgain) {
-            JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!\nMake 3 in a row to win and if you miss 3 in a row you lose!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
 
             int layers = 3;
             int rows = 3;
@@ -63,7 +63,7 @@ public class BounceBattle {
                     isGameOver = true;
                     displayBoard(board);
                     
-                    JOptionPane.showMessageDialog(null, "Player " + winningPlayer + " wins!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Player " + currentPlayer + " wins!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 }
 
                 if (isGameWon(board, layers, rows, columns, currentPlayer)) {
