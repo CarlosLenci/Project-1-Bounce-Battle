@@ -9,7 +9,7 @@ public class BounceBattle {
         boolean playAgain = true;
 
         while (playAgain) {
-            JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Welcome to the Bounce Game! Get 3 in a row to win (diagonal not included), 2 players required! If you miss 3 times in a row we'll give you a free ball on the house!", "Bounce Game", JOptionPane.PLAIN_MESSAGE);
 
             int layers = 3;
             int rows = 3;
